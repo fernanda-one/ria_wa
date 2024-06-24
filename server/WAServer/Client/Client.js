@@ -30,23 +30,17 @@ class Client {
     }
 
     async sendMedia(url, caption = "", options = {}, quoted = "") {
-        console.log("🚀 ~ Client ~ sendMedia ~ quoted:", quoted);
-        console.log("🚀 ~ Client ~ sendMedia ~ options:", options);
-        console.log("🚀 ~ Client ~ sendMedia ~ caption:", caption);
-        console.log("🚀 ~ Client ~ sendMedia ~ url:", url);
         let mime = options.file.mimetype.split("/")[0];
         this.from = await this.validateReceiver(this.from);
         const mentions = [...caption.matchAll(/@(\d{0,16})/g)].map(
             (v) => v[1] + "@s.whatsapp.net"
         );
         if (mime == "image") {
-            console.log("🚀 ~ Client ~ sendMedia ~ mime:", mime);
             const data = await this.velixs.sendMessage(
                 this.from,
                 { image: { url: `${url}` }, caption: `${caption}`, mentions },
                 { quoted: quoted }
             );
-            console.log("🚀 ~ Client ~ sendMedia ~ data:", data);
         } else if (mime == "video") {
             await this.velixs.sendMessage(
                 this.from,

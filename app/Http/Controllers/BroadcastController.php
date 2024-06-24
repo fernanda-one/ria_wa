@@ -79,7 +79,7 @@ class BroadcastController extends Controller
         foreach ($contacts as $contact) {
             $request['receiver'] = $contact->phone_number;
             $sender->store($request);
-            sleep(1);
+            sleep(60);
         }
     }
 
@@ -109,7 +109,7 @@ class BroadcastController extends Controller
         foreach ($schedulerArray as $scheduler) {
             session()->put('main_device', $scheduler->session_id);
             $this->shedulerBirthday($scheduler);
-            sleep(2);
+            sleep(60);
         }
 
         return 'success';
@@ -134,11 +134,11 @@ class BroadcastController extends Controller
                 $this->generateImage($id, $nickname, $voucher, $voucher_valid, $gender, $birth);
                 $request['message_type'] = 'media';
                 $request['media_type'] = 'image';
-                $request['media'] = trim(url('/') . '/storage?url=voucher/' . $id . '.jpg');
+                $request['media'] = trim(url('/') . '/storage/app/public/voucher/' . $id . '.jpg');
 
                 $sender->storeBirtday($request);
                 $contact->update(['voucher_sent' => Date::now()->format('Y-m-d')]);
-                sleep(10);
+                sleep(60);
             }
         } catch (\Exception $e) {
             logger()->error('shedulerBirthday failed. ' . $e->getMessage());
