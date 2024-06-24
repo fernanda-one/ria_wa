@@ -79,7 +79,7 @@ class BroadcastController extends Controller
         foreach ($contacts as $contact) {
             $request['receiver'] = $contact->phone_number;
             $sender->store($request);
-            sleep(60);
+            sleep(1);
         }
     }
 
@@ -109,7 +109,7 @@ class BroadcastController extends Controller
         foreach ($schedulerArray as $scheduler) {
             session()->put('main_device', $scheduler->session_id);
             $this->shedulerBirthday($scheduler);
-            sleep(60);
+            sleep(1);
         }
 
         return 'success';
@@ -138,7 +138,7 @@ class BroadcastController extends Controller
 
                 $sender->storeBirtday($request);
                 $contact->update(['voucher_sent' => Date::now()->format('Y-m-d')]);
-                sleep(60);
+                sleep(1);
             }
         } catch (\Exception $e) {
             logger()->error('shedulerBirthday failed. ' . $e->getMessage());
