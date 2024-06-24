@@ -30,7 +30,7 @@ class SingleSender extends Controller
         if (!session()->get('main_device')) return response()->json(['message' => 'No device selected.'], 400);
         $request->validate([
             'receiver' => 'required',
-            'message_type   ' => 'required',
+            'message_type' => 'required',
         ]);
 
         $device = Session::where(['id' => session()->get('main_device'), 'user_id' => auth()->user()->id])->first();
