@@ -95,6 +95,7 @@ class BroadcastController extends Controller
         $schedule->user_id = auth()->user()->id;
         $schedule->session_id = session()->get('main_device');
         $schedule->birth_date = $request->birth_date;
+        $schedule->message = $request->message;
         $schedule->scheduler_at = $request->schedule_date;
         $schedule->save();
 
@@ -135,6 +136,7 @@ class BroadcastController extends Controller
                 $request['message_type'] = 'media';
                 $request['media_type'] = 'image';
                 $request['media'] = trim(url('/') . '/storage/app/public/voucher/' . $id . '.jpg');
+                $request['message'] = $request->message;
 
                 $sender->storeBirtday($request);
                 $contact->update(['voucher_sent' => Date::now()->format('Y-m-d')]);

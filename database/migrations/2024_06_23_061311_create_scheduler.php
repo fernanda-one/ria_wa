@@ -16,6 +16,7 @@ return new class extends Migration
             $table->integer('user_id');
             $table->uuid('session_id');
             $table->date('birth_date');
+            $table->string('message')->nullable();
             $table->date('scheduler_at');
             $table->timestamps();
         });

@@ -24,7 +24,8 @@
                             <select name="region" class="form-select">
                                 <option value="">-- Select One --</option>
                                 @foreach ($regions as $region)
-                                    <option value="{{ $region->id }}" {{ old('region') == $region->id ? 'selected' : '' }}>{{ $region->name }}</option>
+                                    <option value="{{ $region->id }}"
+                                        {{ old('region') == $region->id ? 'selected' : '' }}>{{ $region->name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -35,7 +36,8 @@
                             <select name="area" class="form-select">
                                 <option value="">-- Select One --</option>
                                 @foreach ($areas as $area)
-                                    <option value="{{ $area->id }}" {{ old('area') == $area->id ? 'selected' : '' }}> {{ $area->name }}</option>
+                                    <option value="{{ $area->id }}" {{ old('area') == $area->id ? 'selected' : '' }}>
+                                        {{ $area->name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -49,7 +51,8 @@
                             <select name="shop" class="form-select">
                                 <option value="">-- Select One --</option>
                                 @foreach ($shops as $shop)
-                                    <option value="{{ $shop->id }}" {{ old('shop') == $shop->id ? 'selected' : '' }}> {{ $shop->name }}</option>
+                                    <option value="{{ $shop->id }}" {{ old('shop') == $shop->id ? 'selected' : '' }}>
+                                        {{ $shop->name }}</option>
                                 @endforeach
 
                             </select>
@@ -61,7 +64,8 @@
                             <select name="city" class="form-select">
                                 <option value="">-- Select One --</option>
                                 @foreach ($cities as $city)
-                                    <option value="{{ $city->id }}" {{ old('city') == $city->id ? 'selected' : '' }}>{{ $city->name }}</option>
+                                    <option value="{{ $city->id }}" {{ old('city') == $city->id ? 'selected' : '' }}>
+                                        {{ $city->name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -76,8 +80,6 @@
                                 <option value="">-- Select One --</option>
                                 <option value="text">Text Message</option>
                                 <option value="media">Media Message</option>
-                                {{-- <option value="button">Button Message</option>
-                                <option value="list">List Button Message</option> --}}
                             </select>
                         </div>
                     </div>

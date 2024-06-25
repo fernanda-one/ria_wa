@@ -77,21 +77,25 @@
                                             <i class="ti ti-device-mobile ti-xs"></i>
                                         </span>
                                         <div class="d-block">
-                                            Create Campaign for <span class="fw-bold"> {{ $main_device->session_name }} {!! $main_device->whatsapp_number ? "<small>($main_device->whatsapp_number)</small>" : '' !!} </span> device.
+                                            Create Campaign for <span class="fw-bold"> {{ $main_device->session_name }}
+                                                {!! $main_device->whatsapp_number ? "<small>($main_device->whatsapp_number)</small>" : '' !!} </span> device.
                                         </div>
                                     </div>
                                     <div class="row g-3">
                                         <div class="col-12 col-xl-6 col-lg-6">
                                             <label class="form-label" for="username">Campaign Name</label>
-                                            <input type="text" name="name" class="form-control" placeholder="Enter Name" required />
+                                            <input type="text" name="name" class="form-control"
+                                                placeholder="Enter Name" required />
                                         </div>
                                         <div class="col-12 col-xl-6 col-lg-6">
                                             <div class="mb-3">
-                                                <label class="form-label">Phonebook <small class="text-muted">receiver</small></label>
+                                                <label class="form-label">Phonebook <small
+                                                        class="text-muted">receiver</small></label>
                                                 <select name="phonebook_id" required class="form-select">
                                                     <option value="">-- Select One --</option>
                                                     @foreach ($phonebook as $pb)
-                                                        <option value="{{ $pb->id }}">{{ $pb->title }} ({{ $pb->contacts_count }} Contacts)</option>
+                                                        <option value="{{ $pb->id }}">{{ $pb->title }}
+                                                            ({{ $pb->contacts_count }} Contacts)</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -143,14 +147,17 @@
                                         <div class="col-12 col-xl-6 col-lg-6">
                                             <div class="mb-3">
                                                 <label class="form-label">Delay / Message</label>
-                                                <input type="number" name="delay" class="form-control" required min="0" value="10">
+                                                <input type="number" name="delay" class="form-control" required
+                                                    min="0" value="10">
                                             </div>
                                         </div>
                                         <div class="col-12 col-xl-6 col-lg-6">
                                             <div class="mb-3">
                                                 <label class="form-label">Scheduled at</label>
-                                                <input type="datetime-local" name="scheduled_at" class="form-control" required value="{{ now() }}">
-                                                <small>The default time indicates the message will be sent immediately.</small>
+                                                <input type="datetime-local" name="scheduled_at" class="form-control"
+                                                    required value="{{ now() }}">
+                                                <small>The default time indicates the message will be sent
+                                                    immediately.</small>
                                             </div>
                                         </div>
                                         <div class="col-12 d-flex justify-content-between">
@@ -158,7 +165,8 @@
                                                 <i class="ti ti-arrow-left me-sm-1 me-0"></i>
                                                 <span class="align-middle d-sm-inline-block d-none">Previous</span>
                                             </button>
-                                            <button type="submit" class="btn btn-primary btn-next is-campaign-store" data-id="step2">
+                                            <button type="submit" class="btn btn-primary btn-next is-campaign-store"
+                                                data-id="step2">
                                                 <span class="align-middle">Create Campaign</span>
                                             </button>
                                         </div>
@@ -361,8 +369,10 @@
 
 @push('cssvendor')
     <link rel="stylesheet" href="{!! asset('assets') !!}/vendor/libs/datatables-bs5/datatables.bootstrap5.css" />
-    <link rel="stylesheet" href="{!! asset('assets') !!}/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css" />
-    <link rel="stylesheet" href="{!! asset('assets') !!}/vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css" />
+    <link rel="stylesheet"
+        href="{!! asset('assets') !!}/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css" />
+    <link rel="stylesheet"
+        href="{!! asset('assets') !!}/vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css" />
     <link rel="stylesheet" href="{!! asset('assets') !!}/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css" />
 
     <link rel="stylesheet" href="{!! asset('assets') !!}/vendor/libs/bs-stepper/bs-stepper.css" />

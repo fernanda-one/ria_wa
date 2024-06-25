@@ -30,6 +30,12 @@
                             autocomplete="off" onfocus="(this.type='date')" onblur="(this.type='text')"
                             pattern="[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])" />
                     </div>
+                    <div class="mb-3 col-12 ">
+                        <label class="form-label">Message</label>
+                        <textarea id="message" name="message" class="form-control" ></textarea>
+                    </div>
+
+
                 </div>
                 <div class="text-end mt-3">
                     <button type="submit" class="btn btn-primary">Send Message</button>
